@@ -50,6 +50,6 @@
 --     FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product)
 -- );
 
-INSERT INTO Login(UserName,Password,FullName,Picture) VALUES
-('admin','admin',NULL,NULL),
-('billzay','20102002','Phan Le Tuan','./src/img/User/Bill .jpeg')
+-- INSERT INTO Login(UserName,Password,FullName,Picture) VALUES
+-- ('admin','admin',NULL,NULL),
+-- ('billzay','20102002','Phan Le Tuan','./src/img/User/Bill .jpeg')

@@ -7,11 +7,11 @@
             "previewLimit": 50,
             "server": "localhost",
             "port": 3306,
-            "askForPassword": true,
             "driver": "MySQL",
             "name": "Arcane DB",
             "database": "Arcane_DB",
-            "username": "bill"
+            "username": "bill",
+            "password": "billzay"
         }
     ]
 }
