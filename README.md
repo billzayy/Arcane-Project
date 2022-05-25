@@ -1,5 +1,4 @@
-# Arcane E-commerce Project
-### This is a fullstack project using: 
+# Arcane E-commerce Project ### This is a fullstack project using: 
 * HTML / CSS / JS _( Front-End )_
 * NodeJS _( Back-End )_
 * MySQL _( Database )_
@@ -14,11 +13,6 @@ We have some pages for this project :
 * Contact
 * Responsive
 
---------------------------------
-To use this project, you need to use Docker command on your terminal to build:
-```
-docker-compose up -d
-```
 --------------------------------
 ## Database:
 Tables :
