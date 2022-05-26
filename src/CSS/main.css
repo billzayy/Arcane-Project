@@ -3,3 +3,136 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container{
+    background-image: linear-gradient(to right, violet, cyan);
+    transition: linear 0.5s;
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    height: auto;
+    transition: linear 0.5s;
+}
+.header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row dense;
+    margin-bottom: 10px;
+}
+[class^="header-"]{
+    padding: 10px 5px 0 5px;
+}
+
+[class^="btn-"]{
+    display: flex;
+    padding: 5px;
+}
+
+[class^="btn-"]:hover{
+    cursor: pointer;
+}
+
+.header-left{
+    display: flex;
+    align-items: center;
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-middle{
+    text-align: center;
+}
+
+li{
+    padding: 5px;
+    list-style-type: none;
+}
+.bars{
+    display: none;
+    padding: 5px;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu li{
+    transition: linear 2s;
+}
+
+.menu-2{
+    display: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid black;
+    width: 100%;
+}
+
+.menu li:hover{
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.active{
+    display: block;
+}
+
+#title{
+    padding-top: 70px;
+    background-image: linear-gradient(to right, violet, cyan);
+    padding: 70px 60px 0px 60px;
+}
+
+.title-text{
+    font-size: 50px;
+    margin-left: 5rem;
+}
+
+.title-text span{
+    color: gold;
+    font-size: 60px;
+}
+
+ .title-box img{
+    width: 65%;
+}
+
+.title-box{
+    display: flex;
+    font-size: 20px;
+}
+
+.title-box button{
+    background-color: gold;
+    border: 1px solid black;
+    padding-right: 5px;
+    padding: 5px;
+    margin: 30px 0;
+    font-size: 15px;
+}
+
+.title-box button:hover{
+    background-image: linear-gradient(to right, violet, cyan);
+    cursor: pointer;
+    padding-right: 20px;
+    animation: moveButton linear 1s infinite;
+}
+
+@keyframes moveButton{
+    0%{
+        padding-right: 5px;
+    }
+    50%{
+        padding-right: 20px;
+    }
+    100%{
+        padding-right: 5px;
+    }
+}
+.title-content{
+    margin-top: 2rem;
+}
