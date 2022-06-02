@@ -16,15 +16,19 @@
 -- CREATE TABLE Product(
 --     Id_Product      INT             PRIMARY KEY     NOT NULL,
 --     P_Name          NVARCHAR(255)   NOT NULL,
---     P_Description   NVARCHAR(255)   NOT NULL,
+--     P_Title         NVARCHAR(255)   NOT NULL,
+--     P_Picture       NVARCHAR(255)   NOT NULL,
+--     P_Describe      NVARCHAR(255)   NOT NULL,
 --     P_Price         INT             NOT NULL,
+--     P_Page          NVARCHAR(255)   NOT NULL,
 --     P_Category      NVARCHAR(255)   NOT NULL,
+--     P_Gender        NVARCHAR(255)   NOT NULL,
 --     P_Sales         BOOLEAN         NULL,
 --     P_Top           BOOLEAN         NULL,
 --     P_New           BOOLEAN         NULL,
 --     P_Material      NVARCHAR(255)   NOT NULL,
---     P_Manufacturer  NVARCHAR(255)   NOT NULL,
---     P_Colour        NVARCHAR(255)   NOT NULL,
+--     P_Manufacture   NVARCHAR(255)   NOT NULL,
+--     P_Color         NVARCHAR(255)   NOT NULL,
 --     P_Size          INT             NOT NULL,
 --     Content_1       NVARCHAR(255)   NOT NULL,
 --     Content_2       NVARCHAR(255)   NOT NULL
@@ -49,7 +53,3 @@
 --     FOREIGN KEY (Id_Bill) REFERENCES Bills(Id_Bill),
 --     FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product)
 -- );
-
--- INSERT INTO Login(UserName,Password,FullName,Picture) VALUES
--- ('admin','admin',NULL,NULL),
--- ('billzay','20102002','Phan Le Tuan','./src/img/User/Bill .jpeg')
