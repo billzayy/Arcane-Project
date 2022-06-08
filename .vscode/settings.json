@@ -8,7 +8,7 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "Arcane DB",
+            "name": "Arcane_DB",
             "database": "Arcane_DB",
             "username": "bill",
             "password": "billzay"

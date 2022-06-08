@@ -153,11 +153,11 @@ li{
 }
 
 /* Clothes */
-#clothes{
+#clothes, #deco, #other{
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0;
+    grid-gap: 10px;
 }
 
 .clothes-title{
@@ -170,9 +170,13 @@ li{
     display: flex;
     justify-content:center;
     align-items:center;
+    border: 1px solid black;
+    margin: 20px;
 }
 .clothes-pic img{
-    width: 80%;
+    width: auto;
+    height: 300px;
+    object-fit: fill;
 }
 .clothes-pic .special{
     color: #FF47C1;
@@ -186,14 +190,18 @@ li{
 
 .clothes-pic .price{
     color: #FF47C1;
-    font-size: 20px;
+    font-size: 15px;
     align-self:flex-end;
     position: relative;
-    right: 2.5rem;
+    right: 1.7rem;
 }
 
 .clothes-description{
     color: gray;
+}
+.clothes-text{
+    text-align: center;
+    margin: 10px;
 }
 
 .clothes-name{
