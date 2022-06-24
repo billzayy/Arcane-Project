@@ -1,4 +1,5 @@
-# Arcane E-commerce Project ### This is a fullstack project using: 
+# Arcane E-commerce Project 
+### This is a fullstack project using: 
 * HTML / CSS / JS _( Front-End )_
 * NodeJS _( Back-End )_
 * MySQL _( Database )_
