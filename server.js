@@ -11,8 +11,28 @@ app.get('/',(req,res) => {
     res.sendFile(__dirname + "/src/main.html");
 })
 
-app.get('/api', (req, res) => {
+app.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/src/login.html');
+})
+
+app.get('/login/:username/:password/:email', (req, res) => {
+    var userName = req.params['username'];
+    var password = req.params['password'];
+    var email = req.params['email'];
+    
+    sql.conSQL(`INSERT INTO Login (username, password, email) VALUES ('${userName}', '${password}', '${email}')`, (recordset) => { 
+        res.send(recordset)
+    })
+})
+
+app.get('/api/product', (req, res) => {
     sql.conSQL("Select * from Product", (recordset) => {
+        res.send(recordset)
+    })
+})
+
+app.get('/api/login', (req, res) => { 
+    sql.conSQL("Select * From Login", (recordset) => {
         res.send(recordset)
     })
 })

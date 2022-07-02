@@ -4,18 +4,48 @@ const clothes = document.querySelector('#clothes');
 const deco = document.querySelector('#deco');
 const other = document.querySelector('#other');
 const button = document.querySelector('button')
+const btnUser = document.querySelector('.btn-user');
+const logoutBtn = document.querySelector('.btn-logout');
+const userBox = document.querySelector('.user-box'); 
+const dropdown = document.querySelector('.dropdown');
+
 bar.addEventListener('click', () => { 
     menuList.classList.toggle('active');
 })
 
 window.addEventListener("DOMContentLoaded", () => { 
+    if (localStorage.getItem('user') != null) {
+        userBox.innerHTML = localStorage.getItem('user')
+    }
+    else { 
+        userBox.innerHTML = "Guest"
+    }
+
+    if (userBox.innerHTML == "Guest") {
+        btnUser.addEventListener("click", () => {
+            window.location.href = "http://localhost:3000/login"
+        })
+    }
+    else if (userBox.innerHTML == localStorage.getItem('user')) {
+        btnUser.addEventListener('mouseover', () => {
+            dropdown.style.display = "block";
+        })
+        btnUser.addEventListener('mouseout', () => {
+            dropdown.style.display = "none";
+        })
+    }
     mainClothes();
     mainDeco();
     mainOther();
 })
 
+logoutBtn.addEventListener('click', () => {
+    window.localStorage.removeItem("user");
+    window.location.href = "http://localhost:3000/login"
+})
+
 function mainClothes() { 
-    fetch("http://localhost:3000/api")
+    fetch("http://localhost:3000/api/product")
         .then(res => res.json())
         .then(data => {
             let mainPage = "";
@@ -51,7 +81,7 @@ function mainClothes() {
 }
 
 function mainDeco() {
-    fetch("http://localhost:3000/api")
+    fetch("http://localhost:3000/api/product")
         .then(res => res.json())
         .then(data => {
             let mainPage = "";
@@ -87,7 +117,7 @@ function mainDeco() {
 }
 
 function mainOther() {
-    fetch("http://localhost:3000/api")
+    fetch("http://localhost:3000/api/product")
         .then(res => res.json())
         .then(data => {
             let mainPage = "";

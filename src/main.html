@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/main.css">
-    <link rel="stylesheet" href="./CSS/main-responsive.css">
     <link rel="shortcut icon" href="./img/Icon.png" type="image/x-icon">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Arcane Web Project</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <div class="header">
             <div class="header-left">
                 <ul class="menu">
@@ -40,6 +39,17 @@
                     <i class='fas fa-shopping-cart'></i>
                     <p class="button-text">Cart</p>
                     <span style = "color: tomato">(11)</span>
+                </div>
+                <div class="btn-user">
+                    <i class="far fa-user"></i>
+                    <p class="button-text user-box"></p>
+                    <div class="dropdown">
+                        <ul>
+                            <li><i class="fas fa-user"></i> Profile</li>
+                            <li><i class="fas fa-cog"></i>Settings</li>
+                            <li class="btn-logout"><i class="fas fa-arrow-alt-circle-right"></i>Log out</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         
@@ -80,10 +90,15 @@
 
     <!-- Deco -->
     <div class="content-2">
+        <div class="pic-behind" style="position: absolute;">
+            <img src="./img/Main/Ellipse 3.png" alt="" >
+            <img src="./img/Main/Ellipse 4.png" alt="" >
+            <img src="./img/Main/Ellipse 5.png" alt="" >
+        </div>
         <div class="content-title">Deco</div>
         <div id="deco"></div>
         <div class="btn-box">
-            <button class="btn">See more <i class="fas fa-arrow-right"></i></button>
+            <button class="btn">See all <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 
@@ -92,11 +107,65 @@
         <div class="content-title">Other</div>
         <div id="other"></div>
         <div class="btn-box">
-            <button class="btn">See more <i class="fas fa-arrow-right"></i></button>
+            <button class="btn">Show more <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 
-    <div id="footer"></div>
+    <div id="footer">
+        <div class="footer-1">
+            <img src="./img/footer.png" alt="">
+            <div class="footer-1-content">
+                <div class="footer-title">
+                    <span>Subscribe</span> to our newsletter
+                </div>
+                <p>
+                    and get until <span>15%</span> off your first order
+                </p>
+                <input type="text" name="" id="box-text" placeholder="Email">
+            </div>
+        </div>
+        <div class="footer-2">
+            <div class="footer-content">
+                <div class="footer-content-title">Catalogue</div>
+                <ul>
+                    <li>Clothes</li>
+                    <li>Deco</li>
+                    <li>Other</li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <div class="footer-content-title">About</div>
+                <ul>
+                    <li>Customer Service</li>
+                    <li>Privacy policy</li>
+                    <li>Contacts</li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <img src="./img/Main/Logo.png" alt="">
+                <p style ="text-align:center;color: white; opacity: 0.3;">E-commerce</p>
+            </div>
+            <div class="footer-content">
+                <div class="footer-content-title">Support</div>
+                <ul>
+                    <li>Returns and Exchanges</li>
+                    <li>Order status</li>
+                    <li>Delivery</li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <div class="footer-content-title">Follow us</div>
+                <ul>
+                    <li><i class ="fab fa-instagram"></i></li>
+                    <li><i class ="fab fa-facebook"></i></li>
+                    <li><i class ="fab fa-twitter"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a class="scroll-link top-link-btn" href="#container">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 </body>
 <script src="./JS/main.js"></script>
 </html>

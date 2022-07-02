@@ -10,7 +10,7 @@ function conSQL(strSQ,cb) {
 
     connectDB.connect(function (err) {
         if (err) throw err;
-        console.log('Connected to the MySQL server.');
+        // console.log('Connected to the MySQL server.');
         connectDB.query(strSQ, function (err, result) {
             if (err) throw(err);
             cb(result)
