@@ -4,13 +4,17 @@ const clothes = document.querySelector('#clothes');
 const deco = document.querySelector('#deco');
 const other = document.querySelector('#other');
 const button = document.querySelector('button')
+const goCategory = document.querySelectorAll('.btn');
 const btnUser = document.querySelector('.btn-user');
 const logoutBtn = document.querySelector('.btn-logout');
+const topLink = document.querySelector('.top-link-btn');
 const userBox = document.querySelector('.user-box'); 
 const dropdown = document.querySelector('.dropdown');
 
-bar.addEventListener('click', () => { 
-    menuList.classList.toggle('active');
+goCategory.forEach(i => { 
+    i.addEventListener('click', () => {
+        window.location.href = "http://localhost:3000/category"
+    })
 })
 
 window.addEventListener("DOMContentLoaded", () => { 
@@ -37,6 +41,26 @@ window.addEventListener("DOMContentLoaded", () => {
     mainClothes();
     mainDeco();
     mainOther();
+})
+
+window.addEventListener("scroll", () => {
+    const scrollHeight = window.pageYOffset;
+
+    if (scrollHeight > 500) {
+        topLink.classList.add('show-link-btn')
+    }
+    else {
+        topLink.classList.remove('show-link-btn')
+    }
+})
+
+topLink.addEventListener('click', () => {
+    window.scrollTo(
+        {
+            left: 0,
+            top: 0,
+        }
+    );
 })
 
 logoutBtn.addEventListener('click', () => {

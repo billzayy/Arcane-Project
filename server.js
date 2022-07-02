@@ -25,6 +25,10 @@ app.get('/login/:username/:password/:email', (req, res) => {
     })
 })
 
+app.get('/category', (req, res) => { 
+    res.sendFile(__dirname + '/src/category.html')
+})
+
 app.get('/api/product', (req, res) => {
     sql.conSQL("Select * from Product", (recordset) => {
         res.send(recordset)

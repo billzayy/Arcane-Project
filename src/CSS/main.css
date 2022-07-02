@@ -3,9 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 #container{
-    background-image: linear-gradient(to right, violet, cyan);
+    background: url('../img/Main/header.png') no-repeat center;
+    background-size: 100%;
     position: fixed;
     width: 100%;
     padding: 0;
@@ -54,14 +57,26 @@
 }
 .dropdown{
     position:absolute;
-    top:3.2rem;
+    top:3.6rem;
     right: 0;
-    background-color: cyan;
+    background-color: white;
     width: 10%;
     display: none;
     box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    transition: linear 0.2s;
 }
-
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    position: absolute;
+    top: -0.6rem;
+    right: 3rem;
+    z-index: 2;
+}
 .dropdown .fas{
     margin-right: 5px;
 }
@@ -403,10 +418,13 @@ section:hover{
     color: white;
     animation: bounce 2s ease-in-out infinite;
     text-decoration: none;
-    /* visibility: hidden; */
-    /* z-index: -100; */
+    visibility: hidden;
+    z-index: -100;
 }
-
+.show-link-btn {
+    visibility: visible;
+    z-index: 100;
+}
 @keyframes bounce {
     0% {
         transform: scale(1);
