@@ -74,7 +74,7 @@ function mainClothes() {
         .then(data => {
             let mainPage = "";
             data.forEach(i => {
-                if (i.P_Page == 'Main' && i.P_Category == 'Clothes') {
+                if (i.P_Page == 'Main' && i.P_Category != 'Poster' && i.P_Category != 'Other') {
                     mainPage += `
                     <section>
                         <div class="content-pic">
@@ -83,7 +83,9 @@ function mainClothes() {
                             <div class="price">$${i.P_Price}</div>
                         </div>
                         <div class="content-text">
-                            <div class="content-description">${i.P_Title}</div>
+                            <div class="content-description">
+                                ${i.P_Category} for ${i.P_Gender}
+                            </div>
                             <div class="content-name">${i.P_Name}</div>
                         </div>
                     </section>
@@ -110,7 +112,7 @@ function mainDeco() {
         .then(data => {
             let mainPage = "";
             data.forEach(i => {
-                if (i.P_Page == 'Main' && i.P_Category == 'Deco') {
+                if (i.P_Page == 'Main' && i.P_Category == 'Poster') {
                     mainPage += `
                     <section>
                         <div class="content-pic">
@@ -119,7 +121,7 @@ function mainDeco() {
                             <div class="deco-price">$${i.P_Price}</div>
                         </div>
                         <div class="content-text">
-                            <div class="content-description">${i.P_Title}</div>
+                            <div class="content-description">${i.P_Category} for ${i.P_Size}</div>
                             <div class="content-name">${i.P_Name}</div>
                         </div>
                     </section>
@@ -155,7 +157,7 @@ function mainOther() {
                             <div class="price">$${i.P_Price}</div>
                         </div>
                         <div class="content-text">
-                            <div class="content-description">${i.P_Title}</div>
+                            <div class="content-description">${i.P_Describe}</div>
                             <div class="content-name">${i.P_Name}</div>
                         </div>
                     </section>

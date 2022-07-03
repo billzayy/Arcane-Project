@@ -119,21 +119,143 @@ li {
     transition: linear 2s;
 }
 
-.menu-2 {
-    display: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid black;
-    width: 100%;
-}
-
 .menu li:hover {
     border-bottom: 1px solid black;
     cursor: pointer;
 }
 
-.active {
-    display: block;
+/* Main */
+
+#main{
+    padding-top: 6rem;
+}
+
+.title{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.sort-bar{
+    background-color: #F3D27D;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+}
+
+[class^="box-"]{
+    padding-left: 20px;
+}
+
+[class^="box-"] > select{
+    padding: 0 10px;
+    text-align:left;
+    background-color:transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 150px;
+}
+select:hover{
+    cursor: pointer;
+}
+
+.box-icon i{
+    padding: 0 5px;
+    color: #8F1933;
+    opacity: 0.5;
+    transition: linear 0.2s;
+}
+
+.box-icon i:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.content-1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    /* border: 1px solid black; */
+    width: 100%;
+}
+section {
+    /* border: 1px solid black; */
+    margin: 20px 10px;
+    padding: 0;
+    position: relative;
+    transition: linear 0.2s;
+}
+section:hover {
+    cursor: pointer;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 6px 4px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content-title {
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin: 20px; */
+}
+
+.content-pic img {
+    width: 100%;
+    height: 400px;
+    /* object-fit: fill; */
+}
+
+.content-pic .special {
+    color: #FF47C1;
+    transform: rotate(-90deg);
+    font-size: 25px;
+    text-transform: uppercase;
+    position: absolute;
+    left: -0.2rem;
+    z-index: 3;
+}
+
+.content-pic .price {
+    color: #FF47C1;
+    font-size: 15px;
+    align-self: flex-end;
+    margin-bottom: 5px;
+    position: absolute;
+    right: 0.5rem;
+}
+
+.price-poster {
+    font-size: 15px;
+    align-self: flex-end;
+    margin-bottom: 5px;
+    position: absolute;
+    right: 0.5rem;
+    padding: 2px;
+    border: 1px solid black;
+    background-color: lightgray;
+}
+
+.content-description {
+    color: gray;
+}
+
+.content-text {
+    text-align: center;
+    margin: 10px;
+}
+
+.content-name {
+    font-size: 20px;
+    font-weight: bold;
+    word-wrap: break-word;
 }
 /* Footer */
 .footer-1 img {
