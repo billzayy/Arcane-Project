@@ -18,54 +18,12 @@ goCategory.forEach(i => {
 })
 
 window.addEventListener("DOMContentLoaded", () => { 
-    if (localStorage.getItem('user') != null) {
-        userBox.innerHTML = localStorage.getItem('user')
-    }
-    else { 
-        userBox.innerHTML = "Guest"
-    }
-
-    if (userBox.innerHTML == "Guest") {
-        btnUser.addEventListener("click", () => {
-            window.location.href = "http://localhost:3000/login"
-        })
-    }
-    else if (userBox.innerHTML == localStorage.getItem('user')) {
-        btnUser.addEventListener('mouseover', () => {
-            dropdown.style.display = "block";
-        })
-        btnUser.addEventListener('mouseout', () => {
-            dropdown.style.display = "none";
-        })
-    }
+    setUser();
+    logoutAct();
+    scrollPage();
     mainClothes();
     mainDeco();
     mainOther();
-})
-
-window.addEventListener("scroll", () => {
-    const scrollHeight = window.pageYOffset;
-
-    if (scrollHeight > 500) {
-        topLink.classList.add('show-link-btn')
-    }
-    else {
-        topLink.classList.remove('show-link-btn')
-    }
-})
-
-topLink.addEventListener('click', () => {
-    window.scrollTo(
-        {
-            left: 0,
-            top: 0,
-        }
-    );
-})
-
-logoutBtn.addEventListener('click', () => {
-    window.localStorage.removeItem("user");
-    window.location.href = "http://localhost:3000/login"
 })
 
 function mainClothes() { 
@@ -195,4 +153,56 @@ function changeColorSale(sale, price) {
         sale.style.display = "none";
         price.style.color = "#8F1933"
     }
+}
+
+function setUser() {
+    if (localStorage.getItem('user') != null) {
+        userBox.innerHTML = localStorage.getItem('user')
+    }
+    else {
+        userBox.innerHTML = "Guest"
+    }
+}
+
+function logoutAct() {
+    if (userBox.innerHTML == "Guest") {
+        btnUser.addEventListener("click", () => {
+            window.location.href = "http://localhost:3000/login"
+        })
+    }
+    else if (userBox.innerHTML == localStorage.getItem('user')) {
+        btnUser.addEventListener('mouseover', () => {
+            dropdown.style.display = "block";
+        })
+        btnUser.addEventListener('mouseout', () => {
+            dropdown.style.display = "none";
+        })
+    }
+
+    logoutBtn.addEventListener('click', () => {
+        window.localStorage.removeItem("user");
+        window.location.href = "http://localhost:3000/login"
+    })
+}
+
+function scrollPage() {
+    window.addEventListener("scroll", () => {
+        const scrollHeight = window.pageYOffset;
+
+        if (scrollHeight > 500) {
+            topLink.classList.add('show-link-btn')
+        }
+        else {
+            topLink.classList.remove('show-link-btn')
+        }
+    })
+
+    topLink.addEventListener('click', () => {
+        window.scrollTo(
+            {
+                left: 0,
+                top: 0,
+            }
+        );
+    })
 }
