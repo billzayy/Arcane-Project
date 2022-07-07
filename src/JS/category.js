@@ -25,6 +25,7 @@ async function showProduct() {
     data.forEach(i => {
         result += `
             <section>
+                <div class ="id_product">${i.Id_Product}</div>
                 <div class="content-pic">
                     <div class="special">${i.P_Sales}</div>
                     <img src="${i.P_Picture}" alt="">
@@ -45,10 +46,7 @@ async function showProduct() {
     for (let i = 0; i < price.length; i++) {
         changeColorSale(sale[i], price[i]);
     }
-    const sectionBox = document.querySelectorAll('section');
-    sectionBox.forEach(i => {
-        console.log(i.clientWidth)
-    })
+    Product()
 }
 
 async function showProduct2() {
@@ -58,37 +56,38 @@ async function showProduct2() {
     data.forEach(i => {
         result += `
             <section>
-                    <div class="list-pic">
-                        <img src="${i.P_Picture}" alt="">
-                        <div class="list-price">$${i.P_Price}</div>
+                <div class ="id_product">${i.Id_Product}</div>  
+                <div class="list-pic">
+                    <img src="${i.P_Picture}" alt="">
+                    <div class="list-price">$${i.P_Price}</div>
+                </div>
+                <div class="list-content">
+                    <div class="list-content-name">${i.P_Name}</div>
+                    <div class="list-content-title">
+                        ${i.P_Category} for ${i.P_Gender}
                     </div>
-                    <div class="list-content">
-                        <div class="list-content-name">${i.P_Name}</div>
-                        <div class="list-content-title">
-                            ${i.P_Category} for ${i.P_Gender}
-                        </div>
-                        <div class="list-content-text">
-                            <ul>
-                                <li>${i.Content_1}</li>
-                                <li>${i.Content_2}</li>
-                            </ul>
-                        </div>
+                    <div class="list-content-text">
+                        <ul>
+                            <li>${i.Content_1}</li>
+                            <li>${i.Content_2}</li>
+                        </ul>
                     </div>
-                    <div class="list-info">
-                        <div class="info-title">Information</div>
-                        <div class="list-info-description">
-                            Description : <span>${i.P_Describe}</span>
-                        </div>
-                        <div class="list-info-material">
-                            Material : <span>${i.P_Material}</span>
-                        </div>
-                        <div class="list-info-color">
-                            Color : <span>${i.P_Color}</span>
-                        </div>
-                        <button class="info-btn">Add to cart</button>
+                </div>
+                <div class="list-info">
+                    <div class="info-title">Information</div>
+                    <div class="list-info-description">
+                        Description : <span>${i.P_Describe}</span>
                     </div>
-                    <div class="sale">${i.P_Sales}</div>
-                </section>
+                    <div class="list-info-material">
+                        Material : <span>${i.P_Material}</span>
+                    </div>
+                    <div class="list-info-color">
+                        Color : <span>${i.P_Color}</span>
+                    </div>
+                    <button class="info-btn">Add to cart</button>
+                </div>
+                <div class="sale">${i.P_Sales}</div>
+            </section>
         `
         contentList.innerHTML = result
     })
@@ -97,6 +96,7 @@ async function showProduct2() {
     for (let i = 0; i < price.length; i++) {
         changeColorSale(sale[i], price[i]);
     }
+    Product();
 }
 
 function changeColorSale(sale, price) {
@@ -185,4 +185,20 @@ function scrollPage() {
             }
         );
     })
+}
+
+function Product() {
+    const idProduct = document.querySelectorAll('.id_product');
+    const sectionBtn = document.querySelectorAll('.content-1 section');
+    const listBtn = document.querySelectorAll('.content-2 section img')
+    for (let i = 0; i < sectionBtn.length; i++) {
+        sectionBtn[i].addEventListener('click', () => {
+            window.location.href = `http://localhost:3000/detail/${idProduct[i].textContent}`
+        })
+    }
+    for (let i = 0; i < listBtn.length; i++) {
+        listBtn[i].addEventListener('click', () => {
+            window.location.href = `http://localhost:3000/detail/${idProduct[i].textContent}`
+        })
+    }
 }

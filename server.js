@@ -29,6 +29,13 @@ app.get('/category', (req, res) => {
     res.sendFile(__dirname + '/src/category.html')
 })
 
+app.get('/detail/:id', (req, res) => {
+    var id = req.params['id'];
+    sql.conSQL(`SELECT * FROM PRODUCT WHERE Id_Product = ${id}`, (recordset) => {
+        res.send(recordset)
+    })
+})
+
 app.get('/api/product', (req, res) => {
     sql.conSQL("Select * from Product", (recordset) => {
         res.send(recordset)
