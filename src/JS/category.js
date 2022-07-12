@@ -193,12 +193,14 @@ function Product() {
     const listBtn = document.querySelectorAll('.content-2 section img')
     for (let i = 0; i < sectionBtn.length; i++) {
         sectionBtn[i].addEventListener('click', () => {
-            window.location.href = `http://localhost:3000/detail/${idProduct[i].textContent}`
+            localStorage.setItem('api', `http://localhost:3000/detail/api/${idProduct[i].textContent}`)
+            location.href = `http://localhost:3000/detail/`
         })
     }
     for (let i = 0; i < listBtn.length; i++) {
         listBtn[i].addEventListener('click', () => {
-            window.location.href = `http://localhost:3000/detail/${idProduct[i].textContent}`
+            localStorage.setItem('api', `http://localhost:3000/detail/api/${idProduct[i].textContent}`)
+            location.href = `http://localhost:3000/detail/`
         })
     }
 }

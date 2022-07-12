@@ -1,4 +1,3 @@
-const bar = document.querySelector('.bars');
 const menuList = document.querySelector('.menu-2');
 const clothes = document.querySelector('#clothes');
 const deco = document.querySelector('#deco');

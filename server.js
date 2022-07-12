@@ -8,7 +8,7 @@ const sql = require('./sql')
 app.use(express.static(path.join(__dirname + '/src')));
 
 app.get('/',(req,res) => { 
-    res.sendFile(__dirname + "/src/main.html");
+    res.sendFile(__dirname + "/src/index.html");
 })
 
 app.get('/login', (req, res) => {
@@ -29,10 +29,14 @@ app.get('/category', (req, res) => {
     res.sendFile(__dirname + '/src/category.html')
 })
 
-app.get('/detail/:id', (req, res) => {
+app.get('/detail', (req, res)=> {
+  res.sendFile(__dirname + '/src/detail.html')
+})
+
+app.get('/detail/api/:id', (req, res) => {
     var id = req.params['id'];
     sql.conSQL(`SELECT * FROM PRODUCT WHERE Id_Product = ${id}`, (recordset) => {
-        res.send(recordset)
+        res.send(recordset);
     })
 })
 
