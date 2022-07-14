@@ -1,18 +1,14 @@
-const menuList = document.querySelector('.menu-2');
-const button = document.querySelector('button')
-const goCategory = document.querySelectorAll('.btn');
-const btnUser = document.querySelector('.btn-user');
-const logoutBtn = document.querySelector('.btn-logout');
-const topLink = document.querySelector('.top-link-btn');
-const userBox = document.querySelector('.user-box');
-const dropdown = document.querySelector('.dropdown');
+import * as funcs from './func.mjs'
+
 const contentMain = document.querySelector('#main');
 
+const optBtn = document.querySelectorAll('.opt-title ul li')
 window.addEventListener("DOMContentLoaded", () => {
-    setUser();
-    logoutAct();
-    scrollPage();
+    funcs.setUser();
+    funcs.logoutAct();
+    funcs.scrollPage();
     Product();
+    optContent();
 })
 
 async function Product() {
@@ -22,7 +18,8 @@ async function Product() {
     const data = res.json();
     data.then((data) => {
         data.forEach((item) => {
-           result += `
+            result += `
+            <div class="id-product">${item.Id_Product}</div>
             <div class="main-pic">
                 <img src=".${item.P_Picture}" alt="">
             </div>
@@ -47,18 +44,18 @@ async function Product() {
                 </div>
                 <div class="content-size">Size : <span>L</span></div>
                 <div class="btn-size">
-                    <input type="button" value="XXS">
-                    <input type="button" value="XS">
-                    <input type="button" value="S">
-                    <input type="button" value="M">
-                    <input type="button" value="L">
-                    <input type="button" value="XL">
-                    <input type="button" value="XXL">
-                    <input type="button" value="XXXL">
+                    <input type="button" name = "btnSize" value="XXS">
+                    <input type="button" name = "btnSize" value="XS">
+                    <input type="button" name = "btnSize" value="S">
+                    <input type="button" name = "btnSize" value="M">
+                    <input type="button" name = "btnSize" value="L">
+                    <input type="button" name = "btnSize" value="XL">
+                    <input type="button" name = "btnSize" value="XXL">
+                    <input type="button" name = "btnSize" value="XXXL">
                 </div>
                 <div class="price-btn">
                     <i class="fas fa-minus"></i>
-                    <input type="text" name="counter" id="counter" value="0">
+                    <input type="text" name="counter" id="counter" value="1">
                     <i class="fas fa-plus"></i>
                     <div class="price-content">$${item.P_Price}</div>
                 </div>
@@ -67,78 +64,91 @@ async function Product() {
                 </div>
             </div>
             `;
-            contentMain.innerHTML = result
+            contentMain.innerHTML = result;
+            btnPrice(item.P_Price);
+            btnSize();
+            moveCart();
         })
     })
 }
 
-function changeColorSale(sale, price) {
-    if (sale.textContent == "Sale") {
-        sale.style.color = '#FF47C1'
-        price.style.color = '#FF47C1';
-    }
-    else if (sale.textContent == 'New') {
-        sale.style.color = '#63CEFC'
-        price.style.color = '#63CEFC';
-    }
-    else if (sale.textContent == 'Top') {
-        sale.style.color = '#98A0E8'
-        price.style.color = '#98A0E8';
-    }
-    else {
-        sale.style.display = "none";
-        price.style.color = "#8F1933"
-    }
-}
-
-function setUser() {
-    if (localStorage.getItem('user') != null) {
-        userBox.innerHTML = localStorage.getItem('user')
-    }
-    else {
-        userBox.innerHTML = "Guest"
-    }
-}
-
-function logoutAct() {
-    if (userBox.innerHTML == "Guest") {
-        btnUser.addEventListener("click", () => {
-            window.location.href = "http://localhost:3000/login"
+function optContent() {
+    const describe = document.querySelector('.describe-content')
+    const sizeGuide = document.querySelector('.size-guide-content')
+    const usageTip = document.querySelector('.usage-tip-content')
+    optBtn.forEach(i => {
+        i.addEventListener('click', (e) => {
+            console.log(e.target)
+            if (i.innerHTML == 'Usage Tips') {
+                describe.style.display = 'none';
+                sizeGuide.style.display = 'none';
+                usageTip.style.display = 'flex';
+            }
+            else if (i.innerHTML == 'Size Guide') {
+                describe.style.display = 'none';
+                sizeGuide.style.display = 'flex';
+                usageTip.style.display = 'none';
+            }
+            else {
+                describe.style.display = 'flex';
+                sizeGuide.style.display = 'none';
+                usageTip.style.display = 'none';
+            }
         })
-    }
-    else if (userBox.innerHTML == localStorage.getItem('user')) {
-        btnUser.addEventListener('mouseover', () => {
-            dropdown.style.display = "block";
-        })
-        btnUser.addEventListener('mouseout', () => {
-            dropdown.style.display = "none";
-        })
-    }
-
-    logoutBtn.addEventListener('click', () => {
-        window.localStorage.removeItem("user");
-        window.location.href = "http://localhost:3000/login"
     })
 }
 
-function scrollPage() {
-    window.addEventListener("scroll", () => {
-        const scrollHeight = window.pageYOffset;
+function btnSize() {
+    const sizeBtn = document.querySelectorAll('.btn-size input');
+    const sizeBox = document.querySelector('.content-size span');
+    sizeBtn.forEach(i => {
+        i.addEventListener('click', () => {
+            sizeBox.innerHTML = i.value;
+        })
+    })
+}
 
-        if (scrollHeight > 500) {
-            topLink.classList.add('show-link-btn')
+function btnPrice(price) {
+    const btnPlus = document.querySelector('.price-btn .fa-plus');
+    const btnMinus = document.querySelector('.price-btn .fa-minus');
+    const numBox = document.querySelector('#counter')
+    const priceBox = document.querySelector('.price-content')
+
+    btnPlus.addEventListener('click', () => {
+        numBox.value++;
+        priceBox.innerHTML = `$${price * numBox.value}`
+    })
+
+    btnMinus.addEventListener('click', () => {
+        if (numBox.value != 1) {
+            numBox.value--;
+            priceBox.innerHTML = `$${price * numBox.value}`
         }
         else {
-            topLink.classList.remove('show-link-btn')
+            numBox.value = 1;
         }
     })
+}
 
-    topLink.addEventListener('click', () => {
-        window.scrollTo(
-            {
-                left: 0,
-                top: 0,
-            }
-        );
+function moveCart() {
+    const addCart = document.querySelector('.add-cart');
+    const idProduct = parseInt(document.querySelector('.id-product').innerHTML);
+    const idClient = parseInt(localStorage.getItem('idClient'))
+    const date = new Date()
+    addCart.addEventListener('click', async () => {
+        try {
+            await fetch(`http://localhost:3000/api/cart/${idProduct}/${idClient}/${date}`)
+            const res = await fetch(`http://localhost:3000/api/cart`);
+            const data = res.json();
+            data.then(item => {
+                item.forEach(i => {
+                    console.log(i)
+                })
+            })
+            alert("Add cart successful!");
+        }
+        catch {
+            alert("Error to add cart")
+        }
     })
 }

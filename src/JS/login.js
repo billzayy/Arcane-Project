@@ -6,6 +6,7 @@ const spanBtn = document.querySelectorAll('span');
 const loginContainer = document.querySelector('.login-container')
 const registerContainer = document.querySelector('.register-container')
 const inputBox = document.querySelectorAll('.input-login');
+const idBox = document.querySelector('.id-client')
 
 loginBtn.addEventListener('click', () => {
    CheckLogin(inputBox[0].value,inputBox[1].value);
@@ -38,6 +39,10 @@ async function CheckLogin(username, password) {
     data.forEach(i => {
         usernameArr.push(i.UserName);
         passwordArr.push(i.Password);
+        if (username == i.UserName) {
+            idBox.innerHTML = i.Id_Login;
+            localStorage.setItem('idClient', parseInt(idBox.innerHTML))
+        }
     })
     if (usernameArr.includes(username) && passwordArr.includes(password)) {
         // alert("Log in Successful !");

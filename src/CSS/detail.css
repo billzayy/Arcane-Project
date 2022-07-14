@@ -136,9 +136,13 @@ li {
     display: block;
 }
 
+.id-product{
+    display: none;
+}
+
 #main{
     display: flex;
-    padding: 80px 0 100px 0;
+    padding: 120px 0 100px 0;
     width: 100%;
     justify-content: center;
     flex-direction: row;
@@ -191,9 +195,10 @@ li {
     border: 0;
     border: 1px solid lightgray;
     color: lightgray;
+    transition: linear 0.4s;
 }
 
-.btn-size > input:hover{
+.btn-size > input:hover, .btn-size>input:focus{
     cursor: pointer;
     border: 1px solid black;
     color: black;
@@ -206,7 +211,7 @@ li {
 }
 
 .price-btn > input{
-    width: 6.5%;
+    width: 10%;
     text-align: center;
     margin: 0 10px;
     padding: 5px;
@@ -271,6 +276,84 @@ li {
     100% {
         width: 30%;
     }
+}
+
+#opt{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.opt-title {
+    border: 1px solid gray;
+    border-left: 0;
+    border-right: 0;
+    width: 100%;
+}
+
+.opt-title ul{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+.opt-title ul li{
+    margin: 20px 10px;
+    color:rgb(183, 179, 179);
+    font-weight: bold;
+    transition: linear 0.2s;
+}
+
+.opt-title ul li:hover{
+    cursor: pointer;
+    color: #8F1933;
+}
+
+.opt-content{
+    width: 100%;
+}
+
+.describe-content{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin: 10px 0;
+}
+.describe-content p{
+    width: 50%;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.size-guide-content{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.size-guide-content img{
+    width: 70%;
+}
+.usage-tip-content{
+    display: flex;
+    justify-content: center;
+}
+
+.usage-tip-content section{
+    width: 190px;
+    height:150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin: 10px;
+}
+
+.usage-tip-content img{
+    margin-bottom: 10px;
 }
 /* Footer */
 .footer-1 img {

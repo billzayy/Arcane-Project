@@ -52,6 +52,35 @@ app.get('/api/login', (req, res) => {
     })
 })
 
+app.get('/api/cart', (req, res) => {
+    sql.conSQL("Select * From Bills", (recordset) => {
+        res.send(recordset)
+    })
+})
+
+app.get('/api/cart/:product/:client/:date', (req, res) => {
+    var idProduct = req.params['product'];
+    var idClient = req.params['client'];
+    var date = req.params['date'];
+
+    sql.conSQL(`Insert into Bills(Id_Product, Id_Client,B_BuyDate) Values (${idProduct},${idClient}, '${date}')`, (recordset) => {
+        res.send(recordset)
+    })
+})
+
+app.get('/api/cart/info/:idBill/:product/:sumPrice/:quantity/:discount/:delivery', (req, res) => {
+    var idBill = req.params['idBill'];
+    var idProduct = req.params['product'];
+    var sumPrice = req.params['sumPrice'];
+    var quantity = req.params['quantity'];
+    var discount = req.params['discount'];
+    var delivery = req.params['delivery'];
+
+    sql.conSQL(`Insert into Bills_Info(Id_Bill, Id_Product, P_SumPrice, B_Quantity, B_Discount, B_Delivery) Values (${idBill},${idProduct},${sumPrice},${quantity},${discount},'${delivery}')`, (recordset) => {
+        res.send(recordset)
+    })
+})
+
 app.listen(3000, () => {
     console.log("listening on 3000")
 })
