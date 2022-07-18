@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
     funcs.setUser();
     funcs.logoutAct();
     funcs.scrollPage();
+    funcs.moveCart();
     Product();
     optContent();
 })
@@ -67,7 +68,6 @@ async function Product() {
             contentMain.innerHTML = result;
             btnPrice(item.P_Price);
             btnSize();
-            moveCart();
         })
     })
 }
@@ -130,25 +130,3 @@ function btnPrice(price) {
     })
 }
 
-function moveCart() {
-    const addCart = document.querySelector('.add-cart');
-    const idProduct = parseInt(document.querySelector('.id-product').innerHTML);
-    const idClient = parseInt(localStorage.getItem('idClient'))
-    const date = new Date()
-    addCart.addEventListener('click', async () => {
-        try {
-            await fetch(`http://localhost:3000/api/cart/${idProduct}/${idClient}/${date}`)
-            const res = await fetch(`http://localhost:3000/api/cart`);
-            const data = res.json();
-            data.then(item => {
-                item.forEach(i => {
-                    console.log(i)
-                })
-            })
-            alert("Add cart successful!");
-        }
-        catch {
-            alert("Error to add cart")
-        }
-    })
-}

@@ -1,4 +1,4 @@
-import { changeColorSale, setUser, logoutAct, scrollPage } from './func.mjs'
+import { changeColorSale, setUser, logoutAct, scrollPage, moveCart } from './func.mjs'
 
 const clothes = document.querySelector('#clothes');
 const deco = document.querySelector('#deco');
@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
     setUser();
     logoutAct();
     scrollPage();
+    moveCart();
     mainClothes();
     mainDeco();
     mainOther();

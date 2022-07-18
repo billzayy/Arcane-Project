@@ -1,14 +1,15 @@
-import { changeColorSale, setUser, logoutAct, scrollPage } from './func.mjs'
+import * as alias from './func.mjs'
 
 const iconBtn = document.querySelectorAll('.btn-icon')
 const contentGrid = document.querySelector('.content-1');
 const contentList = document.querySelector('.content-2');
 
 window.addEventListener("DOMContentLoaded", () => {
-    setUser();
-    logoutAct();
+    alias.setUser();
+    alias.logoutAct();
     iconClick();
-    scrollPage();
+    alias.scrollPage();
+    alias.moveCart();
     showProduct();
     showProduct2();
 })
@@ -40,7 +41,7 @@ async function showProduct() {
     const price = document.querySelectorAll('.price');
     const sale = document.querySelectorAll('.special');
     for (let i = 0; i < price.length; i++) {
-        changeColorSale(sale[i], price[i]);
+        alias.changeColorSale(sale[i], price[i]);
     }
     Product()
 }
@@ -90,7 +91,7 @@ async function showProduct2() {
     const price = document.querySelectorAll('.list-price');
     const sale = document.querySelectorAll('.sale');
     for (let i = 0; i < price.length; i++) {
-        changeColorSale(sale[i], price[i]);
+        alias.changeColorSale(sale[i], price[i]);
     }
     Product();
 }

@@ -3,6 +3,7 @@ const userBox = document.querySelector('.user-box');
 const dropdown = document.querySelector('.dropdown');
 const topLink = document.querySelector('.top-link-btn');
 const logoutBtn = document.querySelector('.btn-logout');
+const cartBtn = document.querySelector('.btn-cart');
 
 function changeColorSale(sale, price) {
     if (sale.textContent == "Sale") {
@@ -75,9 +76,16 @@ function scrollPage() {
     })
 }
 
+function moveCart() {
+    cartBtn.addEventListener('click', () => {
+        location.href = "http://localhost:3000/cart"
+    })
+}
+
 export {
     changeColorSale,
     setUser,
     logoutAct, 
-    scrollPage
+    scrollPage,
+    moveCart
 }

@@ -52,6 +52,10 @@ app.get('/api/login', (req, res) => {
     })
 })
 
+app.get('/cart', (req, res) => {
+    res.sendFile(__dirname + '/src/cart.html')
+})
+
 app.get('/api/cart', (req, res) => {
     sql.conSQL("Select * From Bills", (recordset) => {
         res.send(recordset)
