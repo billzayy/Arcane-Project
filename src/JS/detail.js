@@ -7,12 +7,11 @@ window.addEventListener("DOMContentLoaded", () => {
     funcs.setUser();
     funcs.logoutAct();
     funcs.scrollPage();
-    funcs.moveCart();
-    Product();
+    Detail();
     optContent();
 })
 
-async function Product() {
+async function Detail() {
     let result = "";
     const url = localStorage.getItem('api');
     const res = await fetch(url);

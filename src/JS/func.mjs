@@ -87,5 +87,5 @@ export {
     setUser,
     logoutAct, 
     scrollPage,
-    moveCart
+    moveCart,
 }

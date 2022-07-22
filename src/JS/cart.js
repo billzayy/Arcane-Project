@@ -1,14 +1,15 @@
-import { changeColorSale, setUser, logoutAct, scrollPage, moveCart } from './func.mjs'
+import * as alias from './func.mjs'
+
 const goBack = document.querySelector('.go-back');
 const section = document.querySelectorAll('section');
 const itemBox = document.querySelector('.order-items span');
 const cartNum = document.querySelector('.btn-cart span')
 window.addEventListener("DOMContentLoaded", () => {
-    setUser();
-    logoutAct();
-    scrollPage();
-    moveCart();
-    btnPrice();
+    alias.setUser();
+    alias.logoutAct();
+    alias.scrollPage();
+    alias.moveCart();
+    // btnPrice();
 })
 
 goBack.addEventListener('click', () => {
@@ -43,7 +44,6 @@ function btnPrice() {
         })
     }
     priceBox.innerHTML = `$${addPrice(sum)}`
-    removeProduct(sum);
 }
 
 function definePrice(i,price,numBox) {
@@ -65,15 +65,4 @@ function minusPrice(arr) {
         result = result - i
     })
     return result
-}
-
-function removeProduct(arr) {
-    const removeBtn = document.querySelectorAll('.btn-delete')
-    let removeArr = 0;
-    for (let i = 0; i < section.length; i++) {
-        removeBtn[i].addEventListener('click', () => {
-            removeArr = arr.splice(i, 1)
-            section[i].remove()
-        })
-    }
 }

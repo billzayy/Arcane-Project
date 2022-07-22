@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", () => {
     alias.logoutAct();
     iconClick();
     alias.scrollPage();
-    alias.moveCart();
     showProduct();
     showProduct2();
 })
@@ -40,10 +39,12 @@ async function showProduct() {
     })
     const price = document.querySelectorAll('.price');
     const sale = document.querySelectorAll('.special');
+    const idProduct = document.querySelectorAll('.id_product');
+    const gridBtn = document.querySelectorAll('.content-1 section');
     for (let i = 0; i < price.length; i++) {
         alias.changeColorSale(sale[i], price[i]);
     }
-    Product()
+    Product(idProduct, gridBtn);
 }
 
 async function showProduct2() {
@@ -90,10 +91,12 @@ async function showProduct2() {
     })
     const price = document.querySelectorAll('.list-price');
     const sale = document.querySelectorAll('.sale');
+    const idProduct = document.querySelectorAll('.id_product');
+    const listBtn = document.querySelectorAll('.content-2 section img');
     for (let i = 0; i < price.length; i++) {
         alias.changeColorSale(sale[i], price[i]);
     }
-    Product();
+    Product(idProduct, listBtn)
 }
 
 function iconClick() {
@@ -112,19 +115,10 @@ function iconClick() {
     })
 }
 
-function Product() {
-    const idProduct = document.querySelectorAll('.id_product');
-    const gridBtn = document.querySelectorAll('.content-1 section');
-    const listBtn = document.querySelectorAll('.content-2 section img')
-    for (let i = 0; i < gridBtn.length; i++) {
-        gridBtn[i].addEventListener('click', () => {
-            localStorage.setItem('api', `http://localhost:3000/detail/api/${idProduct[i].textContent}`)
-            location.href = `http://localhost:3000/detail/`
-        })
-    }
-    for (let i = 0; i < listBtn.length; i++) {
-        listBtn[i].addEventListener('click', () => {
-            localStorage.setItem('api', `http://localhost:3000/detail/api/${idProduct[i].textContent}`)
+function Product(id, styleBtn) {
+    for (let i = 0; i < styleBtn.length; i++) {
+        styleBtn[i].addEventListener('click', () => {
+            localStorage.setItem('api', `http://localhost:3000/detail/api/${id[i].textContent}`)
             location.href = `http://localhost:3000/detail/`
         })
     }
